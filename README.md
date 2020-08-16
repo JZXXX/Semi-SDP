@@ -15,7 +15,7 @@ Our semi-sdp parser can be trained by simply running
 ```
 python3 main.py train UnlabelGraphParserNetwork  --force --config_file $CONFIGFILE
 ```
-By default, if the save directory already exists, you'll get a prompt warning you that the system will delete it if you continue and giving you one last chance to opt-out. If you are debugging or want to run the program in the background, add the `--force` flag. 
+`CONFIGFILE` contains all hyperparameters of the model. By default, if the save directory already exists, you'll get a prompt warning you that the system will delete it if you continue and giving you one last chance to opt-out. If you are debugging or want to run the program in the background, add the `--force` flag. 
 
 ### Parsing
 The trained model can be run by calling

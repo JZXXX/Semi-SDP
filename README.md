@@ -15,8 +15,11 @@ Our semi-sdp parser can be trained by simply running
 ```
 python3 main.py train UnlabelGraphParserNetwork  --force --config_file $CONFIGFILE
 ```
-`CONFIGFILE` contains all hyperparameters of the model. By default, if the save directory already exists, you'll get a prompt warning you that the system will delete it if you continue and giving you one last chance to opt-out. If you are debugging or want to run the program in the background, add the `--force` flag. <br> Our model was trained with [Glove](https://nlp.stanford.edu/projects/glove) embedding. <br>
-To train with the unlabeled data, note the parameters in `Flag` subsection in the config file. Set `fix_label_data=True` under the `Flag` and the `labeled_num` means how many sentences are there in your training set. For other parameters that need to be modified, please refer to the paper and code.  
+`CONFIGFILE` contains all hyperparameters of the model, we give an example file in the directory 'config/'. By default, if the save directory already exists, you'll get a prompt warning you that the system will delete it if you continue and giving you one last chance to opt-out. If you are debugging or want to run the program in the background, add the `--force` flag. <br> Our model was trained with [Glove](https://nlp.stanford.edu/projects/glove) embedding. <br>
+To train with the unlabeled data, note the parameters in `Flag` subsection in the config file. Set `fix_label_data=True` under the `Flag` and the `labeled_num` means how many sentences have labels in your training set (Need to put labeled data in front of unlabeled data). For other parameters that need to be modified, please refer to the paper and code.  
+
+### Data
+Format of datasets used in this code is CoNLL-U, we give an example in the directory 'data/'. The path of training/develop set is set in the `CONFIGFILE`, these can be changed according to yourself setting. Depending on the memory size (24G) of the running platform, we use labeled sentences less than 60 in length. Script that filters sentence according to lengths is simple, we give an exampel in the directory 'scripts/select_sents.py'. 
 
 ### Parsing
 The trained model can be run by calling
